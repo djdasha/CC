@@ -21,7 +21,7 @@ function setup() {
 
 function draw() {
   // background(bg);
-  background(226, 204, 0);
+  // background(226, 204, 0);
   stroke(226, 204, 0);
     line(0, y, width, y);
 
