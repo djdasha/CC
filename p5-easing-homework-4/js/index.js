@@ -39,15 +39,15 @@ function draw() {
   //change the shape of our motion
   var pct = pow(t,50);
 
-  if (t <=0 || t >= 0.9){
+  if (t >= 0.9){
     ellipse(300, y *9, moveX/10, moveX/10);
   }
 
-  if (t <=0 || t >= 0.7){
+  if (t >= 0.7){
     ellipse(200, y *7, moveX/15, moveX/15);
   }
 
-  if (t <=0 || t >= 0.4){
+  if (t >= 0.4){
     ellipse(150, y *12, moveX/10, moveX/10);
   }
 
