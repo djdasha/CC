@@ -27,19 +27,20 @@ function draw() {
   t+=.01 * dir;
   if( t <= 0 || t >= 1) {
     dir *= -1; //reverse direction
+    // print("CHANGE");
   }
   //change the shape of our motion
   var pct = pow(t,5.5);
-
-  if (t <=0 || t >= 0.9){
+  // print(t);
+  if ( t >= 0.9){
     ellipse(900, y *9, moveX, moveX);
   }
 
-  if (t <=0 || t >= 0.7){
+  if ( t >= 0.7){
     ellipse(300, y *3, moveX, moveX);
   }
 
-  if (t <=0 || t >= 0.4){
+  if ( t >= 0.4){
     ellipse(200, y *12, moveX/1.5, moveX/1.5);
   }
   // var c = color(255,255,255);
