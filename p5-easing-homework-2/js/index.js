@@ -9,6 +9,7 @@ var smoothPos = {x:0, y:0};
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
+  console.log(window.innerWidth, window.innerHeight);
 }
 
 function draw() {
