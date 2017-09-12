@@ -1,1 +1,1 @@
-This is an example of easing in js, overlaying shapes over an image.
+Diagram made in js to demonstrate different easing options. 
