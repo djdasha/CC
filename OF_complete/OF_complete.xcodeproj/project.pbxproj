@@ -30,7 +30,6 @@
 		B266578FC55D23BFEBC042E7 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECF8674C7975F1063C5E30CA /* ofxGuiGroup.cpp */; };
 		B56FE57CC35806596D38118C /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 802251BAF1B35B1D67B32FD0 /* ofxSliderGroup.cpp */; };
 		C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */; };
-		C80AFB881F7D8BFB00FE3EF8 /* audioShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C80AFB861F7D8BFB00FE3EF8 /* audioShader.cpp */; };
 		D3301F6A0B43BB293ED97C1D /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A4DD23693DFAB8EC05FAA5D /* ofxCvShortImage.cpp */; };
 		E212C821D1064B92DD953A42 /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A16CBF2E8CFE43AF54FE6F5 /* ofxCvHaarFinder.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -244,8 +243,8 @@
 		C80AFB7E1F7D65A800FE3EF8 /* shader.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = shader.frag; path = bin/data/shader.frag; sourceTree = SOURCE_ROOT; };
 		C80AFB801F7D77BA00FE3EF8 /* shader2.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = shader2.frag; path = bin/data/shader2.frag; sourceTree = SOURCE_ROOT; };
 		C80AFB821F7D797D00FE3EF8 /* shader2.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = shader2.vert; path = bin/data/shader2.vert; sourceTree = SOURCE_ROOT; };
-		C80AFB861F7D8BFB00FE3EF8 /* audioShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = audioShader.cpp; sourceTree = "<group>"; };
-		C80AFB871F7D8BFB00FE3EF8 /* audioShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioShader.h; sourceTree = "<group>"; };
+		C85F1E721F7FD84500BF7DCA /* mask.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = mask.frag; path = bin/data/mask.frag; sourceTree = SOURCE_ROOT; };
+		C85F1E731F7FD85400BF7DCA /* mask.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = mask.vert; path = bin/data/mask.vert; sourceTree = SOURCE_ROOT; };
 		C88333E71C9457E441C33474 /* ofxButton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxButton.cpp; path = ../../../addons/ofxGui/src/ofxButton.cpp; sourceTree = SOURCE_ROOT; };
 		CBDE84185E2969BA4AB209FC /* general.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = general.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/general.h; sourceTree = SOURCE_ROOT; };
 		CCFB64CDA537F2B5A54CDC13 /* photo.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = photo.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/photo/photo.hpp; sourceTree = SOURCE_ROOT; };
@@ -854,8 +853,8 @@
 				C80AFB7E1F7D65A800FE3EF8 /* shader.frag */,
 				C80AFB801F7D77BA00FE3EF8 /* shader2.frag */,
 				C80AFB821F7D797D00FE3EF8 /* shader2.vert */,
-				C80AFB861F7D8BFB00FE3EF8 /* audioShader.cpp */,
-				C80AFB871F7D8BFB00FE3EF8 /* audioShader.h */,
+				C85F1E721F7FD84500BF7DCA /* mask.frag */,
+				C85F1E731F7FD85400BF7DCA /* mask.vert */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1019,7 +1018,6 @@
 				4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */,
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
-				C80AFB881F7D8BFB00FE3EF8 /* audioShader.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,

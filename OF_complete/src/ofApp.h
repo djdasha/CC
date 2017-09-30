@@ -2,11 +2,19 @@
 
 #include "ofMain.h"
 #include "ofxOsc.h"
-#include "audioShader.h"
+#include "ofxGui.h"
+#include "ofxOpenCv.h"
 
-// listen on port 12345
-#define PORT 12345
+#define _USE_LIVE_VIDEO	
+#define PORT 12345 // listen on port 12345
 #define NUM_MSG_STRINGS 20
+
+enum Scenes{
+    IDLE,
+    SCENE2,
+    SCENE3
+};
+
 
 class ofApp : public ofBaseApp {
 public:
@@ -35,10 +43,44 @@ public:
     float oscX = 0.0;
     float oscY = 0.0;
     ofShader shader;
+    ofShader shader2;
+    ofSoundPlayer  oceandeep;
+
+    void audioIn(float * input, int bufferSize, int nChannels);
     
-    audioShader myAudio;
+    vector <float> left;
+    vector <float> right;
+    vector <float> volHistory;
+    
+    int 	bufferCounter;
+    int 	drawCounter;
+    
+    float smoothedVol;
+    float scaledVol;
+    
+    ofPlanePrimitive plane;
+    ofSpherePrimitive sphere;
+    ofBoxPrimitive box;
+    ofEasyCam cam;
     ofSoundStream soundStream;
 
+    Scenes currentScene;
+    ofxFloatSlider colorR;
+    ofxFloatSlider colorG;
+    ofxFloatSlider colorB;
+    ofVideoGrabber 	vidGrabber;
+
+    ofxPanel gui;
     
+    ofxCvColorImage			colorImg;
+    
+    ofxCvGrayscaleImage 	grayImage;
+    ofxCvGrayscaleImage 	grayBg;
+    ofxCvGrayscaleImage 	grayDiff;
+    
+//    ofxCvContourFinder 	contourFinder;
+
+    int 				threshold;
+    bool				bLearnBakground;
     
 };
