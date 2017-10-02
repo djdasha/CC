@@ -3,6 +3,8 @@ projects from the Creative Coding course
 
 ![gif](https://github.com/djdasha/CC/blob/master/OF_complete/of_complete.gif)
 
+![gif](https://media.giphy.com/media/26Ff1GxYO81kf4UY8/giphy.gif)
+
 ![gif](https://media.giphy.com/media/3ohjV4bnVW69lEiLUA/giphy.gif)
 
 ![gif](https://media.giphy.com/media/14l9oPtawqxEQM/giphy.gif)
