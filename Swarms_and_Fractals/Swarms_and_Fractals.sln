@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{11DC48D6-ACC0-04A2-62D9-6159FC53059E}") = "Swarms_and_Fractals", "Assembly-CSharp.csproj", "{394F36C9-51B4-4C2A-984C-64DE5C435D0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{394F36C9-51B4-4C2A-984C-64DE5C435D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394F36C9-51B4-4C2A-984C-64DE5C435D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394F36C9-51B4-4C2A-984C-64DE5C435D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394F36C9-51B4-4C2A-984C-64DE5C435D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
