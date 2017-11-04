@@ -1,6 +1,8 @@
 # CC
 projects from the Creative Coding course
 
+![gif](https://github.com/djdasha/CC/blob/master/Vuforia_test/giphy-downsized-large.gif)
+
 ![gif](https://github.com/djdasha/CC/blob/master/OF_complete/of_complete.gif)
 
 ![gif](https://media.giphy.com/media/26Ff1GxYO81kf4UY8/giphy.gif)
