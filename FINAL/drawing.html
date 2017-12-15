@@ -1,0 +1,256 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="p5.min.js"></script>
+    <style type="text/css">
+    	html,body{
+    		margin:0;
+    		padding:0;
+    	}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+						
+
+						var lastId = 0;
+						var allDrawings = [];
+						var data = [];
+
+
+
+						function setup(){
+							createCanvas(1080,1920);
+							background(173, 216, 230);
+							frameRate(60);
+							var checkData = null;
+							// var whatData;
+							var url = './getDataJson.php?lastId='+lastId;
+							//data = loadJSON(url);
+							loadJSON(url,onDataLoad);
+							
+
+				            if(checkData==null){
+				                checkData = setInterval( function(){
+				                    //setup();
+				                    var url = './getDataJson.php?lastId='+lastId;
+				                    loadJSON(url,onDataLoad);
+				                }
+				                    , 5000);
+				            }
+							
+
+						}
+
+						function draw(){
+							background(173, 216, 230);
+
+							for (var i=0; i<allDrawings.length; i++) {
+								allDrawings[i].display();
+								
+						  	}
+
+						}
+
+
+						function Shape(){
+							this.x = 0;
+							this.y = 0;
+							this.color = '#FFFFFF';
+							this.shape = "stline";
+							this.speed = 2;
+							this.ox = 0;
+							this.oy = 0;
+
+							this.display = function(){
+
+								this.x = .9 * this.x + .1 * this.ox;
+								this.y = .9 * this.y + .1 * this.oy;
+
+								//ellipse(this.x,this.y,this.w,this.w);
+								if( this.shape == "circle"){
+
+									fill(this.color);
+									noStroke();
+									ellipseMode(CENTER);
+
+									ellipse(this.x,this.y,this.radius2 + sin(millis()/300)*10,this.radius2 + sin(millis()/300)*10);
+
+								}else if( this.shape == "stline"){
+								 	
+								  	stroke(this.color);
+						  			strokeWeight(10);
+						  			noFill();
+						  			this.ox = this.ox + this.speed;
+									if((this.ox > width) || (this.ox < 0)){
+										this.speed = this.speed * -1;
+									}
+						  			line(this.x,this.y,this.w,this.h);
+
+								}else if( this.shape == "fillRect"){
+									fill(this.color);
+									noStroke();
+									
+									rect(this.x,this.y,this.radius2 + sin(millis()/500)*15,this.radius2 + sin(millis()/500)*20);
+																	 	
+								}
+							}
+
+							this.setup = function(jsonData){
+								this.x = float(jsonData.number1);
+								this.y = float(jsonData.number2);
+								this.ox = float(jsonData.number1);
+								this.oy = float(jsonData.number2);
+								this.color = jsonData.color;
+								this.shape = jsonData.shape;
+
+								
+								var r = random(1000);
+								var radius = random(400);
+								this.w = r;
+								this.h = r;
+								this.radius2 = radius; 
+							}
+								
+						}
+						
+
+						function onDataLoad(data){
+							console.log(data);
+
+							if(data.length > 0 ){
+								for (var i=0; i<allDrawings.length; i++) {
+									// position of new - this position 
+									allDrawings[i].x += 50;
+									allDrawings[i].y -= 50;
+						  		}
+							}
+							for(var i = 0; i < data.length; i++){
+				                // if( data[i].shape == "circle") addCircle(data[i]);
+				                // else if( data[i].shape == "stline") addLine(data[i]);
+				                // else if( data[i].shape == "fillRect") addRect(data[i]);
+				                if(data[i].id>lastId)lastId = data[i].id;
+				                // allDrawings.push(data[i]);
+				                allDrawings.push( new Shape() );
+				                allDrawings[ allDrawings.length - 1 ].setup( data[i] );
+				                console.log( allDrawings.length )
+				                //data[i].move();
+				                //data[i].display();
+				            }
+				            console.log(lastId);
+						}
+
+				// function addLine(myData){
+				// 			// var randomLine = random(1000);
+				// 		    // ctx.beginPath();
+
+				// 		    var x = myData.number1;
+				// 		    var y = myData.number2;
+				// 		    var strokeMe = myData.color;
+				// 		    this.position = random(100, 900);
+				// 		    this.speed = 20;
+						    
+				// 			this.move = function() {
+				// 			  this.x += random(-this.speed, this.speed);
+				// 			  this.y += random(-this.speed, this.speed);
+				// 			};
+				// 			stroke(strokeMe);
+				// 		    strokeWeight(10);
+				// 		    noFill();
+				// 		    this.display = function(){
+				// 		    	line(x,y,this.position, this.position);
+
+				// 		    }
+						    
+				// 		    // ctx.strokeStyle = stroke;
+				// 		    // ctx.lineWidth = 15;
+				// 		    // ctx.closePath();
+				// 		}
+
+				// 		function addCircle(myData){
+				// 			// var randomCircle = random(100);
+				// 		    // ctx.beginPath();
+				// 		    var x = myData.number1;
+				// 		    var y = myData.number2;
+				// 		    var strokeC = myData.color;
+						    
+				// 		    this.diameter = random(10, 30);
+				// 		    this.speed = 20;
+				// 			fill(strokeC);
+				// 		    noStroke();
+				// 			this.move = function() {
+				// 			  this.x += random(-this.speed, this.speed);
+				// 			  this.y += random(-this.speed, this.speed);
+				// 			};
+				// 			this.display = function(){
+				// 				ellipse(x,y,this.diameter,this.diameter);
+				// 			}
+						    
+				// 		    // ctx.closePath();
+				// 		}
+
+				// 		function addRect(myData){
+				// 			// var randomRect = random(100);
+				// 		    // ctx.beginPath();
+				// 		    var x = myData.number1;
+				// 		    var y = myData.number2;
+				// 		    var strokeR = myData.color;
+				// 		    // ctx.moveTo(y,x);
+				// 		    // console.log(myData);
+				// 		    // console.log(stroke);
+				// 		    // fillStyle = stroke;
+				// 		    //noStroke();
+				// 		    // fillStyle = stroke;
+							
+				// 		    this.size = random(100, 900);
+				// 		    this.speed = 20;
+				// 		    fill(strokeR);
+				// 		    noStroke();
+				// 			this.move = function() {
+				// 			  this.x += random(-this.speed, this.speed);
+				// 			  this.y += random(-this.speed, this.speed);
+				// 			};
+				// 			this.display = function(){
+				// 				rect(x,y,this.size,this.size);
+				// 			}
+
+
+				// 		    // ctx.lineWidth = 15;
+				// 		    // ctx.stroke();
+				// 		    // ctx.closePath();
+				// 		}
+			
+
+		// function getData(){
+		// 	var lastId = 0;
+		// 	var checkData = null;
+		//     console.log("getData");
+		//     $.ajax({ url: './getDataJson.php?lastId='+lastId,
+		//         type: 'get',
+		//         dataType: "JSON",
+		//         success: function(data) {
+		//             console.log(data);
+		            
+		//             for(var i = 0; i < data.length; i++){
+		                 
+		//                 if( data[i].shape == "circle") addCircle(data[i]);
+		//                 else if( data[i].shape == "stline") addLine(data[i]);
+		//                 else if( data[i].shape == "fillRect") addRect(data[i]);
+		//                 if(data[i].id>lastId) lastId = data[i].id;
+		//             }
+
+		//             if(checkData==null){
+		//                 checkData = setInterval( function(){
+		//                     getData();
+		//                 }
+		//                     , 5000);
+		//             }
+		//         }
+		// });
+		// }
+
+		// setup();
+		
+    </script>
+  </body>
+</html>
